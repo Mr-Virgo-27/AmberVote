@@ -45,4 +45,34 @@ class VoterController extends Controller
 
         return redirect()->back()->with('Success','Voter Added');
     }
+
+    function view(){
+        $voters=voter::all();
+        return view('voter/view',compact('voters'));
+    }
+
+    function edit($id){
+        $voter=voter::find($id);
+
+        return view('voter/edit',compact('voter'));
+    }
+
+    function update(Request $req){
+ 
+        voter::find($req->id)->update([
+            'voter_nm'=>$req->voter_nm,
+            'email'=>$req->email,
+            'valid_id'=>$req->valid_id,
+            'unique_id'=>$req->unique_id,
+            'unique_key'=>$req->unique_key,
+            'phone_num'=>$req->phone_num
+        ]);
+
+        return redirect()->back()->with('Success','Voter Updated');
+    }
+
+    function delete($id){
+        voter::destroy($id);
+        return redirect()->back()->with('Success','Voter Deleted');
+    }
 }
