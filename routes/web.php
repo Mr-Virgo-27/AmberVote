@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VoterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Voter Section
+
+Route::get('/Add/Election/Voter',[VoterController::class,'index'])->name('AddVoterIndex');
+
+Route::post('/Add/Election/Voter',[VoterController::class,'addvoter'])->name('AddVoterIndex');
 
