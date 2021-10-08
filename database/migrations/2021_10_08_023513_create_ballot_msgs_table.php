@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBallotsTable extends Migration
+class CreateBallotMsgsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateBallotsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ballots', function (Blueprint $table) {
+        Schema::create('ballot_msgs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('election_id')->unsigned();
-            $table->foreign('election_id')->references('id')->on('elections');
-            $table->string('ballot_type');
-            $table->longText('desc');
+            $table->bigInteger('ballot_id')->unsigned();
+            $table->foreign('ballot_id')->references('id')->on('ballots');
+            $table->string('msg_type');
+            $table->text('msg_desc');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateBallotsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ballots');
+        Schema::dropIfExists('ballot_msgs');
     }
 }
