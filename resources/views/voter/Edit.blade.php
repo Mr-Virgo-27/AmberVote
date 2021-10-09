@@ -7,7 +7,7 @@
     <p>{{Session('Success')}}</p>
 </div>
 @endif
-<form action="{{Route('AddVoterIndex')}}" method="post">
+<form action="{{Route('EditVoterIndex')}}" method="post">
     @csrf
 <div class="p-6 mt-10 bg-white rounded-lg shadow">
     <div class="grid gap-6 lg:grid-cols-2">
@@ -20,7 +20,8 @@
           
         </div>
         <p>
-          <input id="voter_nm" autocomplete="false" tabindex="0" placeholder="e.g. John Brown" type="text" name="voter_nm" class="@error('voter_nm') border-red-700 @enderror block w-full h-full px-1 py-1 text-gray-900 outline-none">
+          <input id="voter_nm" autocomplete="false" tabindex="0" placeholder="e.g. John Brown" type="text" name="voter_nm" value="{{$voter->voter_nm}}" class="@error('voter_nm') border-red-700 @enderror block w-full h-full px-1 py-1 text-gray-900 outline-none">
+          <input id="voter_nm" autocomplete="false" tabindex="0" placeholder="e.g. John Brown" type="hidden" name="id" value="{{$voter->id}}" class="@error('voter_nm') border-red-700 @enderror block w-full h-full px-1 py-1 text-gray-900 outline-none">
         </p>
         @error("voter_nm")
         <div class="mt-2 text-sm text-red-700">
@@ -36,7 +37,7 @@
           </p>
         </div>
         <p>
-          <input id="email" autocomplete="false" tabindex="0" type="email" placeholder="Example123@gmail.com" name="email" class="block w-full h-full px-1 py-1 outline-none">
+          <input id="email" autocomplete="false" tabindex="0" type="email" placeholder="Example123@gmail.com" name="email" value="{{$voter->email}}" class="block w-full h-full px-1 py-1 outline-none">
         </p>
         @error("email")
         <div class="mt-2 text-sm text-red-700">
@@ -52,7 +53,7 @@
           </p>
         </div>
         <p>
-          <input id="valid_id" autocomplete="false" tabindex="0" type="text" placeholder="123817" name="valid_id" class="block w-full h-full px-1 py-1 outline-none">
+          <input id="valid_id" autocomplete="false" tabindex="0" type="text" placeholder="123817" name="valid_id" value="{{$voter->valid_id}}" class="block w-full h-full px-1 py-1 outline-none">
         </p>
         @error("valid_id")
         <div class="mt-2 text-sm text-red-700">
@@ -68,7 +69,7 @@
           </p>
         </div>
         <p>
-          <input id="phone_num" autocomplete="false" tabindex="0" placeholder="876-111-1111" type="telephone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone_num" class="block w-full h-full px-1 py-1 text-gray-900 outline-none">
+          <input id="phone_num" autocomplete="false" tabindex="0" placeholder="876-111-1111" type="telephone" value="{{$voter->phone_num}}" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone_num" class="block w-full h-full px-1 py-1 text-gray-900 outline-none">
         </p>
         @error("phone_num")
         <div class="mt-2 text-sm text-red-700">
@@ -84,7 +85,7 @@
           </p>
         </div>
         <p>
-          <input id="unique_id" autocomplete="false" tabindex="0" type="text" placeholder="TO101" name="unique_id" class="block w-full h-full px-1 py-1 outline-none">
+          <input id="unique_id" autocomplete="false" tabindex="0" type="text" placeholder="TO101" name="unique_id" value="{{$voter->unique_id}}" class="block w-full h-full px-1 py-1 outline-none">
         </p>
         @error("unique_id")
         <div class="mt-2 text-sm text-red-700">
@@ -99,7 +100,7 @@
           </p>
         </div>
         <p>
-          <input id="unique_key" autocomplete="false" tabindex="0" type="text" placeholder="191" name="unique_key" class="block w-full h-full px-1 py-1 text-gray-900 outline-none">
+          <input id="unique_key" autocomplete="false" tabindex="0" type="text" placeholder="191" name="unique_key" value="{{$voter->unique_key}}" class="block w-full h-full px-1 py-1 text-gray-900 outline-none">
         </p>
         @error("unique_key")
         <div class="mt-2 text-sm text-red-700">
@@ -112,7 +113,7 @@
     
     <div class="flex justify-center pt-3 mt-6 border-t">
       <button type="submit" class="px-3 py-1 text-gray-100 transition-all duration-300 bg-blue-500 rounded hover:shadow-inner hover:bg-blue-700">
-        Save
+        Update
       </button>
     </div>
   </div>

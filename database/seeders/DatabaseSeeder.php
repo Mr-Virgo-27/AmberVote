@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BallotOption;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             Voters::class,
+            BallotSeeder::class,
+            ElectionSeeder::class,
+            BallotQuestionSeeder::class,
+            BallotOptionSeeder::class,
         ]);
+
     }
 }
