@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BallotController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VoterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +21,23 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+// Richard routes
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard
+    ');
+});
+
+
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+
+Route::get('/dashboard/ballot', [BallotController::class, 'index'])->name('ballots');
+
+Route::get('/dashboard/ballotType', [BallotController::class, 'create'])->name('ballotsType');
+
+Route::post('/dashboard/ballotType', [BallotController::class, 'store'])->name('storeBallot');
 
 Route::get('/BallotQuestion', [\App\Http\Controllers\BallotQuestionController::class, 'BQ'])->name('BQ');
 Route::post('/Add/BallotQuestion', [\App\Http\Controllers\BallotQuestionController::class, 'AddBQ'])->name('AddBQ');
@@ -40,4 +58,24 @@ Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//3447 0494
+
+
+//Voter Section
+
+//Adding Voters Routes
+Route::get('/Add/Election/Voter',[VoterController::class,'index'])->name('AddVoterIndex');
+
+Route::post('/Add/Election/Voter',[VoterController::class,'addvoter'])->name('AddVoterIndex');
+
+//View Voters Info Routes
+Route::get('/View/Election/Voters',[VoterController::class,'view'])->name('ViewVoterIndex');
+
+//Edit Voters Info Routes
+Route::get('/Edit/Election/Voter{id}',[VoterController::class,'edit'])->name('EditVoterIndex');
+
+Route::post('/Edit/Election/Voter',[VoterController::class,'update'])->name('EditVoterIndex');
+
+//Delete Voter
+
+Route::get('/Delete/Election/Voter{id}',[VoterController::class,'delete'])->name('DeleteVoterIndex');
+

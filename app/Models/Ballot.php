@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Voter extends Model
+class Ballot extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'voter_nm',
-        'email',
-        'valid_id',
-        'unique_id',
-        'unique_key',
-        'phone_num'
+        'election_id',
+        'ballot_type',
+        'desc'
     ];
 }
