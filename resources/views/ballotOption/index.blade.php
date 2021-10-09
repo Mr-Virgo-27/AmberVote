@@ -1,63 +1,46 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AddBallotOption</title>
-</head>
-<body>
-<div class="w-full max-w-xs">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" ACTION="{{route('AddBO')}}" method="post" enctype="multipart/form-data">
-        @CSRF
-        <div class="inline-block relative w-64">
-            <select name="quest_id" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                <option value=''>Select Question</option>
-              @foreach($data as $info)
-                <option value="{{$info->id}}">{{$info->Question}}</option
-                @endforeach
+@extends('layouts.app')
+@section('title')
+    View Ballot
+@endsection
+@section('content')
+    <!-- component -->
+    <table class="min-w-full border-collapse block md:table">
+        <thead class="block md:table-header-group">
+        <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center  block md:table-cell">Question</th>
+            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center  block md:table-cell">Options</th>
+            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center  block md:table-cell">Max Response</th>
+            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center  block md:table-cell">Min Response</th>
+            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center  block md:table-cell">Photo</th>
+            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center  block md:table-cell">Desc</th>
+            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center  block md:table-cell">Action</th>
+        </tr>
+        </thead>
+        <tbody class="block md:table-row-group">
+        @foreach($data as $info)
+            <tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
 
-            </select>
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="option">
-                Option
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="option">
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="max_res">
-                Max Response
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="max_res">
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="min_res">
-                Min Response
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="min_res">
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="photo">
-                Photo
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="file" name="photo">
-        </div>
-        <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="desc">
-                Description
-            </label>
-{{--            <input class="shadow-outlinehadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="desc">--}}
-            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="desc"></textarea>
-        </div>
-        <div class="flex items-center justify-between">
-            <button class="bg-blue-600 hover:bg-blue-400" type="Submit"> Submit </button>
-            <button class=" bg-red-600 hover:bg-red-400" type="Reset"> Clear </button>
-        </div>
-    </form>
+                <td class="p-2 md:border md:border-grey-500 text-center block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>{{$info->BallotQuestions->Question}}</td>
+                <td class="p-2 md:border md:border-grey-500 text-left  block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>{{$info->option}}</td>
+                <td class="p-2 md:border md:border-grey-500 text-center  block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>{{$info->max_res}}</td>
+                <td class="p-2 md:border md:border-grey-500 text-center  block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>{{$info->min_res}}</td>
+                <td class="p-2 md:border md:border-grey-500 text-left  block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>{{$info->photo}}</td>
+                <td class="p-2 md:border md:border-grey-500 text-left  block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>{{$info->desc}}</td>
+                <td class="p-2 md:border md:border-grey-500 text-center  block md:table-cell">
+                    <span class="inline-block w-1/3 md:hidden font-bold"></span>
+                    <a href="{{url('/Edit/BallotOption/'.$info->id)}}"><button type="submit"  class="bg-green-600 hover:bg-green-400 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button></a>
+                    <a href="{{url('/Delete/BallotOption/'.$info->id)}}"><button type="submit" class="bg-red-600 hover:bg-red-400 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button></a>
+                </td>
 
-</div>
-</body>
-</html>
-
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    @if(session()->has('delete'))
+        <div class="flex bg-green-400 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
+            <div>
+                <span class="font-medium">Alert</span> {{session('delete')}}
+            </div>
+        </div>
+    @endif
+@endsection
