@@ -3,7 +3,15 @@
     View Ballot
 @endsection
 @section('content')
+    <h1 class="bg-gray-100 p-2 text-BLACK font-bold  text-center ">VIEW BALLOT</h1>
     <!-- component -->
+    @if(session()->has('delete'))
+        <div class="flex bg-green-400 text-center rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
+            <div>
+                <span class="font-medium">Alert</span> {{session('delete')}}
+            </div>
+        </div>
+    @endif
     <table class="min-w-full border-collapse block md:table">
         <thead class="block md:table-header-group">
         <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
@@ -36,11 +44,4 @@
         @endforeach
         </tbody>
     </table>
-    @if(session()->has('delete'))
-        <div class="flex bg-green-400 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
-            <div>
-                <span class="font-medium">Alert</span> {{session('delete')}}
-            </div>
-        </div>
-    @endif
 @endsection
