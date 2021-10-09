@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BallotOption;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
             Voters::class,
             ElectionSeeder::class,
             BallotQuestionSeeder::class,
+            BallotOptionSeeder::class,
         ]);
 
     }
