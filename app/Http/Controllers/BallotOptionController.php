@@ -26,7 +26,6 @@ class BallotOptionController extends Controller
 
         $photo = $request->file('photo')->getClientOriginalName();
         $request->file('photo')->move('images',$photo);
-//         dd($photo);
         BallotOption::create([
             'question_id' => $request->quest_id,
             'option' => $request->option,
