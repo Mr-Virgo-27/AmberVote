@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TwilioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoterController;
 
@@ -19,7 +21,18 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+// Richard routes
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard
+    ');
+    Route::get('sendSMS', [TwilioController::class, 'sendSMS'])->name('sendSMS');
+});
+
+
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
 
 //Voter Section
 

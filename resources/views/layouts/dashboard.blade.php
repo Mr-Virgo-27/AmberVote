@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
     <div>
         <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()"
             x-init="$refs.loading.classList.add('hidden')">
@@ -69,7 +67,7 @@
                         </li>
 
                         <li>
-                            <a href="#" class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
+                            <a href="{{ url('ballot') }}" class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                 :class="{'justify-center': !isSidebarOpen}">
                                 <span>
                                     <svg class="w-6 h-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -377,7 +375,7 @@
                     </div>
 
                     <!-- Start Content -->
-                    {{-- <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
                         <template x-for="i in 4" :key="i">
                             <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
                                 <div class="flex items-start justify-between">
@@ -393,10 +391,10 @@
                                 </div>
                             </div>
                         </template>
-                    </div> --}}
+                    </div>
 
                     <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
-                    {{-- <h3 class="mt-6 text-xl">Users</h3>
+                    <h3 class="mt-6 text-xl">Users</h3>
                     <div class="flex flex-col mt-6">
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -462,11 +460,11 @@
                                                 </tr>
                                             </template>
                                         </tbody>
-                                    </table> --}}
-                                {{-- </div>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </main>
                 <!-- Main footer -->
                 <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">
@@ -540,4 +538,4 @@
             }
         </script>
     </div>
-@endsection
+
