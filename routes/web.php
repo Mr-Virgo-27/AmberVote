@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TwilioController;
+use App\Http\Controllers\BallotController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoterController;
 
@@ -25,13 +25,19 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard
     ');
-    Route::get('sendSMS', [TwilioController::class, 'sendSMS'])->name('sendSMS');
 });
 
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+
+
+Route::get('/dashboard/ballot', [BallotController::class, 'index'])->name('ballots');
+
+Route::get('/dashboard/ballotType', [BallotController::class, 'create'])->name('ballotsType');
+
+Route::post('/dashboard/ballotType', [BallotController::class, 'store'])->name('storeBallot');
 
 Route::get('/BallotQuestion', [\App\Http\Controllers\BallotQuestionController::class, 'BQ'])->name('BQ');
 Route::post('/Add/BallotQuestion', [\App\Http\Controllers\BallotQuestionController::class, 'AddBQ'])->name('AddBQ');
@@ -72,3 +78,4 @@ Route::post('/Edit/Election/Voter',[VoterController::class,'update'])->name('Edi
 //Delete Voter
 
 Route::get('/Delete/Election/Voter{id}',[VoterController::class,'delete'])->name('DeleteVoterIndex');
+
