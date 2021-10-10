@@ -12,7 +12,11 @@
                 </tr>
                 @forelse ($elections as $election)
                     <tr>
-                        <td>{{ $election->election_nm }}</td>
+                        <td>
+                            <a href="{{ route('election.show', $election->id) }}">
+                                {{ $election->election_nm }}
+                            </a>
+                        </td>
                     </tr>
                 @empty
                     <tr>

@@ -22,7 +22,7 @@ class ElectionController extends Controller
     public function electionStore(Request $req)
     {
         Election::create([
-            'user_id' => Auth::User()->id,
+            'user_id' => Auth::user(),
             'election_nm' => $req->election_nm,
             'start_date' => $req->start,
             'end_date' => $req->end,
@@ -30,5 +30,11 @@ class ElectionController extends Controller
         ]);
 
         return redirect()->route('election.Index');
+    }
+
+    public function show($id)
+    {
+        $election = Election::find($id);
+        return view('election.show', compact('election'));
     }
 }
