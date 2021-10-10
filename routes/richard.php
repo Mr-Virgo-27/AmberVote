@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\TwilioController;
 
 Route::middleware('auth')->group(function () {
@@ -15,3 +16,5 @@ Route::get('/BallotOption', [\App\Http\Controllers\BallotOptionController::class
 Route::post('/Add/BallotOption', [\App\Http\Controllers\BallotOptionController::class, 'AddBO'])->name('AddBO');
 Route::get('/Delete/BallotOption/{id}', [\App\Http\Controllers\BallotOptionController::class, 'delete'])->name('DeleteBO');
 Route::post('/Update/BallotQuestion', [\App\Http\Controllers\BallotOptionController::class, 'UpdateBO'])->name('UpdateBO');
+
+Route::get('/election/show/{id}', [ElectionController::class, 'show'])->name('election.show');
