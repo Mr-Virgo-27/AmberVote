@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\BallotQuestion;
 use Illuminate\Http\Request;
-use App\Models\BallotOption;
+use App\Models\QuesOpt;
 
 class BallotOptionController extends Controller
 {
-    //Add Ballot Option
+
     public function BO(){
         $data = BallotQuestion::all();
         return view('ballotOption.AddBallotOption',compact('data'));
@@ -26,7 +26,7 @@ class BallotOptionController extends Controller
 
         $photo = $request->file('photo')->getClientOriginalName();
         $request->file('photo')->move('images',$photo);
-        BallotOption::create([
+        QuesOpt::create([
             'question_id' => $request->quest_id,
             'option' => $request->option,
             'max_res' => $request->max_res,
@@ -38,12 +38,12 @@ class BallotOptionController extends Controller
     }
 
     public function ViewBO(){
-        $data = BallotOption::with('BallotQuestions')->get();
+        $data = QuesOpt::with('BallotQuestions')->get();
 //        dd($data);
         return view('ballotOption.index',compact('data'));
     }
     public function ViewUpdateBO($id){
-        $data = BallotOption::find($id);
+        $data = QuesOpt::find($id);
 //        dd($data);
         return view('ballotOption.UpdateBallotOption',compact('data'));
     }
@@ -57,7 +57,7 @@ class BallotOptionController extends Controller
         $request->file('photo')->move('images',$photo);
 //         dd($photo);
 //        dd($request->quest_id);
-        BallotOption::find($request->quest_id)->update([
+        QuesOpt::find($request->quest_id)->update([
 //            'question_id' => $request->option,
             'option' => $request->option,
             'max_res' => $request->max_res,
@@ -68,7 +68,7 @@ class BallotOptionController extends Controller
         return redirect()->back()->with('update','Successfully updated');
     }
     function delete($id){
-        BallotOption::destroy($id);
+        QuesOpt::destroy($id);
         return redirect()->back()->with('delete','Successfully Deleted');
     }
 }

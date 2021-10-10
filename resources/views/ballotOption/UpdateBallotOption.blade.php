@@ -63,7 +63,7 @@
             <button class="bg-blue-600 hover:bg-blue-400" type="Submit"> Update </button>
         </div>
     </form>
-    <a href="{{route('ViewBQ')}}"> <button  class=" bg-red-600 hover:bg-red-400"> Cancel </button></a>
+    <a href="{{route('ViewBQ')}}"> <button  class=" bg-red-600 hover:bg-red-400 "> Cancel </button></a>
 </div>
 
     @if(session()->has('update'))
