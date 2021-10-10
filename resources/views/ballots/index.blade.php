@@ -10,7 +10,7 @@
       <form>
   <button formaction="" class="py-2 px-4 mt-8 bg-green-600 hover:bg-green-400
  text-white rounded-md shadow-xl">Import Questions</button>
-   <button formaction="{{ route('BQ') }}" class="py-2 px-4 mt-8 bg-blue-600 hover:bg-blue-400 text-white rounded-md shadow-xl">Add Questions</button>
+   <button formaction="{{ route('ballotsType', $election->id) }}" class="py-2 px-4 mt-8 bg-blue-600 hover:bg-blue-400 text-white rounded-md shadow-xl">Add Questions</button>
    </form>
       <div>
         {{-- <span class="absolute py-2 px-8 text-sm text-white top-0 right-0 bg-indigo-600 rounded-md transform translate-x-2 -translate-y-3 shadow-xl">New</span> --}}

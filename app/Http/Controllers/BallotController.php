@@ -13,11 +13,12 @@ class BallotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
+        $election = Election::find($id);
 
-        return view('ballots.index');
+        return view('ballots.index', compact('election'));
     }
 
     /**
@@ -27,14 +28,10 @@ class BallotController extends Controller
      */
     public function create($id)
     {
-<<<<<<< HEAD
-  
-       
-=======
         //
+        $election = Election::find($id);
 
->>>>>>> a13a08f807acf964dd1948e8c3b9352ebea0c02a
-        return view('ballots.create');
+        return view('ballots.create', compact('election'));
     }
 
     /**
@@ -48,14 +45,10 @@ class BallotController extends Controller
         //
         Ballot::create([
             'ballot_type' => $request->ballot_type,
-            'election_id' => $request->election_id
+            'election_id' => $request->election_id,
+            'desc'=>'none'
         ]);
-<<<<<<< HEAD
-
-        return redirect('');
-
-=======
->>>>>>> a13a08f807acf964dd1948e8c3b9352ebea0c02a
+        return redirect()->route('BQ');
     }
 
     /**
