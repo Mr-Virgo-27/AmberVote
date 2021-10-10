@@ -15,6 +15,7 @@ class BallotMsgController extends Controller
     public function index()
     {
         //
+        return view('ballotMsg.index');
     }
 
     /**
