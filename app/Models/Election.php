@@ -9,11 +9,22 @@ class Election extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
+        'user_id',
         'election_nm',
         'start_date',
         'end_date',
         'desc',
         'status'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function ballot()
+    {
+        return $this->hasOne(Ballot::class);
+    }
 }

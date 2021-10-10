@@ -9,8 +9,8 @@ class DashboardController extends Controller
     /**
      * Returns the dashboard view
      */
-    public function index()
+    public function dashboardHome()
     {
-        return view('dashboard');
+        return view('dashboardHome');
     }
 }

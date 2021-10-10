@@ -9,12 +9,31 @@ class BallotQuestion extends Model
 {
     use HasFactory;
 
-    Protected $fillable =[
-
+    protected $fillable = [
+        'ballot_id',
         'question',
+        'max_res',
+        'min_res',
+        'desc'
     ];
 
-    public function BallotOptions(){
-        return $this->hasMany(BallotQuestion::class,'question_id');
+    public function ballot()
+    {
+        return $this->belongsTo(Ballot::class);
+    }
+
+    public function quesOpt()
+    {
+        return $this->hasMany(QuesOpt::class);
+    }
+
+    public function questionVoter()
+    {
+        return $this->hasMany(QuestionVoter::class);
+    }
+
+    public function questionAnswer()
+    {
+        return $this->hasMany(QuestionAnswer::class);
     }
 }
