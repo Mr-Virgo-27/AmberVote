@@ -27,8 +27,13 @@ class BallotController extends Controller
      */
     public function create($id)
     {
+<<<<<<< HEAD
   
        
+=======
+        //
+
+>>>>>>> a13a08f807acf964dd1948e8c3b9352ebea0c02a
         return view('ballots.create');
     }
 
@@ -42,12 +47,15 @@ class BallotController extends Controller
     {
         //
         Ballot::create([
-            'ballot_type'=>$request->ballot_type,
-            'election_id'=>$request->election_id
+            'ballot_type' => $request->ballot_type,
+            'election_id' => $request->election_id
         ]);
+<<<<<<< HEAD
 
         return redirect('');
 
+=======
+>>>>>>> a13a08f807acf964dd1948e8c3b9352ebea0c02a
     }
 
     /**
