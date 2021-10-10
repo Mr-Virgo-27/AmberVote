@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBallotQuestionsTable extends Migration
+class CreateQuestionVotersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateBallotQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ballot_questions', function (Blueprint $table) {
+        Schema::create('question_voters', function (Blueprint $table) {
             $table->id();
-            $table->String('Question');
+            $table->foreignId('voter_id')->constrained();
+            $table->foreignId('ballot_question_id')->constrained();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateBallotQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ballot_questions');
+        Schema::dropIfExists('question_voters');
     }
 }
