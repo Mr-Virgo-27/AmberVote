@@ -15,11 +15,12 @@ class CreateElectionsTable extends Migration
     {
         Schema::create('elections', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('election_nm');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('desc');
-            $table->string('status')->default('Active');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

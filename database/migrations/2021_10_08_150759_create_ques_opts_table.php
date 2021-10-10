@@ -16,7 +16,8 @@ class CreateQuesOptsTable extends Migration
         Schema::create('ques_opts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ballot_question_id')->constrained();
-            $table->longText('options');
+            $table->longText('option');
+            $table->string('photo')->nullable();
             $table->longText('opts_desc');
             $table->timestamps();
         });

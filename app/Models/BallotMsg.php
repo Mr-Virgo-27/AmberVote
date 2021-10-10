@@ -9,9 +9,14 @@ class BallotMsg extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
-            'ballot_id',
-            'msg_type',
-            'msg_desc'
+    protected $fillable = [
+        'ballot_id',
+        'msg_type',
+        'msg_desc'
     ];
+
+    public function ballot()
+    {
+        return $this->belongsTo(Ballot::class);
+    }
 }

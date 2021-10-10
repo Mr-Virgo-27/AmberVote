@@ -17,4 +17,9 @@ class Voter extends Model
         'unique_key',
         'phone_num'
     ];
+
+    public function questionVoter()
+    {
+        return $this->belongsTo(QuestionVoter::class);
+    }
 }
