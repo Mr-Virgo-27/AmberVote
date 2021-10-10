@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuesOptsTable extends Migration
+class CreateQuestionVotersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateQuesOptsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ques_opts', function (Blueprint $table) {
+        Schema::create('question_voters', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('voter_id')->constrained();
             $table->foreignId('ballot_question_id')->constrained();
-            $table->longText('option');
-            $table->string('photo')->nullable();
-            $table->longText('opts_desc');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateQuesOptsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ques_opts');
+        Schema::dropIfExists('question_voters');
     }
 }
