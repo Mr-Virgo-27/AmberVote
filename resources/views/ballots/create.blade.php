@@ -14,15 +14,17 @@
                 <ul class="divide-y divide-gray-300">
                   <div>
                     <li class="p-4 hover:bg-gray-50 cursor-pointer">Mulitple Choice</li>
-                    <form>
-                      <button method="POST" type="submit" formaction="{{ route('storeBallot') }}" class="py-2 px-4 mt-8 bg-green-600 hover:bg-green-400
+                    <form method="POST" action="{{ route('storeBallot') }}">
+                      <input type="hidden" name="election_id" value="{{ $election->id}}">
+                      <button  type="submit" class="py-2 px-4 mt-8 bg-green-600 hover:bg-green-400
  text-white rounded-md shadow-xl" name="ballot_type" value="Mulitple Choice">Select</button>
                     </form>
                     </div>
                     <div>
                     <li class="p-4 hover:bg-gray-50 cursor-pointer">Ranked Choice </li>
-                    <form method="POST">
-                      <button type="submit" formaction="{{ route('storeBallot') }}" class="py-2 px-4 mt-8 bg-green-600 hover:bg-green-400
+                    <form method="POST" form="{{ route('storeBallot') }}">
+                      <input type="hidden" name="election_id" value="{{ $election->id }}"
+                      <button type="submit" class="py-2 px-4 mt-8 bg-green-600 hover:bg-green-400
  text-white rounded-md shadow-xl"  name="ballot_type" value="Ranked Choice">Select</button>
                     </form>
                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ballot;
+use App\Models\Election;
 use Illuminate\Http\Request;
 
 class BallotController extends Controller
@@ -24,9 +25,9 @@ class BallotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+  
        
         return view('ballots.create');
     }
@@ -44,6 +45,8 @@ class BallotController extends Controller
             'ballot_type'=>$request->ballot_type,
             'election_id'=>$request->election_id
         ]);
+
+        return redirect('');
 
     }
 
