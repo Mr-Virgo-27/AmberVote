@@ -24,10 +24,10 @@ class BallotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
-       
+
         return view('ballots.create');
     }
 
@@ -41,10 +41,9 @@ class BallotController extends Controller
     {
         //
         Ballot::create([
-            'ballot_type'=>$request->ballot_type,
-            'election_id'=>$request->election_id
+            'ballot_type' => $request->ballot_type,
+            'election_id' => $request->election_id
         ]);
-
     }
 
     /**
