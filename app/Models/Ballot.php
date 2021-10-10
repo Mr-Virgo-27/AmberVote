@@ -14,4 +14,19 @@ class Ballot extends Model
         'ballot_type',
         'desc'
     ];
+
+    public function election()
+    {
+        return $this->belongsTo(Election::class);
+    }
+
+    public function ballotQuestion()
+    {
+        return $this->hasMany(BallotQuestion::class);
+    }
+
+    public function ballotMsg()
+    {
+        return $this->hasMany(BallotMsg::class);
+    }
 }
