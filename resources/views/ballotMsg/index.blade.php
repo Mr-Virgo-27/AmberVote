@@ -4,52 +4,47 @@
 
 <!-- component -->
 <div class="bg-gray-200">
-    <div class="flex flex-col items-center justify-center h-screen">
-      <div>
-        <H1></H1>
-      </div>
-        <div class="flex flex-col">
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
 
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-red-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
 
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-orange-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
+    {{-- <section class="text-blueGray-700 "> --}}
+        <div class="container flex flex-col items-center px-5 py-8 mx-auto">
+            <div class="flex flex-col w-full mb-12 text-left ">
+                <div class="w-full mx-auto lg:w-1/2">
+                    <h2 class="mx-auto mb-6 text-xl font-semibold leading-none tracking-tighter text-black title-font">Election Messages </h2>
+                    <form action="{{ route('ballotmsgs.store') }} method=" POST">
+                        <input type="hidden" name="election_id" value="">
+                        <div class="w-full mx-auto my-4 bg-white border rounded-lg shadow-xl ">
+                            <div class="p-6">
+                                <input type="checkbox" name="msg_type" id="" value="<p>You have logged in successfully </p>" checked>
+                                <label for='msg_type'>Log in Messages</label>
+                                <p class="mb-3 text-base leading-relaxed text-blueGray-500">You have logged in successfully</p>
+                            </div>
+                        </div>
 
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
+                        <div class="w-full mx-auto my-4 bg-white border rounded-lg shadow-xl ">
+                            <div class="p-6">
 
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
+                        <input type="checkbox" name="msg_type" id="" value="<p>Thank you for Voting in this Election </p>">
+                        <label for='msg_type'>Thank you</label>
+                        <p class="mb-3 text-base leading-relaxed text-blueGray-500">Thank you for Voting in this Election</p>
 
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-teal-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
+                           </div>
+                        </div>
+                        <div class="w-full mx-auto my-4 bg-white border rounded-lg shadow-xl ">
+                            <div class="p-6">
 
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
-
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
-
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
-
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600" checked><span class="ml-2 text-gray-700">label</span>
-            </label>
+                        <input type="checkbox" name="msg_type" id="" value="<p>Voting for this election has closed! Please contact your election administrator if you have questions</p>">
+                        <label class="mb-3 text-base leading-relaxed text-blueGray-500" for='msg_type'>After Election</label>
+                        <p class="mb-3 text-base leading-relaxed text-blueGray-500">Voting for this election has closed! Please contact your election administrator if you have questions</p>
+                           </div>
+                        </div>
+                        <input class="py-2 px-4 mt-8 bg-blue-600 hover:bg-blue-400 text-white rounded-md shadow-xl" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+  
+
 </div>
 
 @endsection
