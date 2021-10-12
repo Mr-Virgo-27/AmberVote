@@ -4,71 +4,82 @@ namespace App\Http\Controllers;
 
 use App\Models\BallotQuestion;
 use Illuminate\Http\Request;
-use App\Models\BallotOption;
+use App\Models\QuesOpt;
 
 class BallotOptionController extends Controller
 {
-    //Add Ballot Option
-    public function BO(){
-        $data = BallotQuestion::all();
-        return view('ballotOption.AddBallotOption',compact('data'));
+
+    public function BO($id){
+        $ballot_id = BallotQuestion::find($id)->first('ballot_id')->toArray();
+        $ballot_id=$ballot_id['ballot_id'];
+        $ballot_question_id=$id;
+        $displayBO=QuesOpt::where('ballot_question_id',$ballot_question_id)->get();
+        return view('ballotOption.AddBallotOption',compact('ballot_question_id','ballot_id','displayBO'));
     }
 
     public function AddBO(Request $request){
         $this->validate($request,[
-
-            'option',
-            'max_res',
-            'min_res',
-            'photo',
-            'desc'
+            'option'=>'required|unique:ques_opts,option',
+            'photo'=>'unique:ques_opts,option',
+            'desc'=>'required|unique:ques_opts,option'
         ]);
 
         $photo = $request->file('photo')->getClientOriginalName();
         $request->file('photo')->move('images',$photo);
-        BallotOption::create([
-            'question_id' => $request->quest_id,
+
+        QuesOpt::create([
+            'ballot_question_id' => $request->quest_id,
             'option' => $request->option,
-            'max_res' => $request->max_res,
-            'min_res' => $request->min_res,
             'photo' => $photo,
-            'desc' => $request->desc
+            'opts_desc' => $request->desc
         ]);
+        $ballot_question_id=$request->quest_id;
+        $ballot_id=$request->ballot_id;
+        $displayBO=QuesOpt::with('BallotQuestion')->where('ballot_question_id','=',$request->quest_id)->get();
         return redirect()->back();
+  }
+
+    public function FinishAddBO(Request $request){
+        $ballot_id=$request->ballot_id;
+        $displayBQ=BallotQuestion::where('ballot_id','=',$request->ballot_id)->get();
+        return view('ballotQuestion.AddBallotQuestion',compact('ballot_id','displayBQ'));
     }
 
     public function ViewBO(){
-        $data = BallotOption::with('BallotQuestions')->get();
-//        dd($data);
+        $data = QuesOpt::with('BallotQuestions')->get();
         return view('ballotOption.index',compact('data'));
     }
     public function ViewUpdateBO($id){
-        $data = BallotOption::find($id);
-//        dd($data);
+        $data = QuesOpt::find($id);
         return view('ballotOption.UpdateBallotOption',compact('data'));
     }
 
     public function UpdateBO(Request $request){
-//        dd($request->photo);
         $this->validate($request,[
-            'photo'=>'required'
+            'photo' =>'required',
+            'option' => 'required',
+            'desc' => 'required'
         ]);
-        $photo = time().$request->file('photo')->getClientOriginalName();
+        $photo = $request->file('photo')->getClientOriginalName();
         $request->file('photo')->move('images',$photo);
-//         dd($photo);
-//        dd($request->quest_id);
-        BallotOption::find($request->quest_id)->update([
-//            'question_id' => $request->option,
-            'option' => $request->option,
-            'max_res' => $request->max_res,
-            'min_res' => $request->min_res,
+
+        QuesOpt::find($request->id)->update([
+           'option' => $request->option,
             'photo' => $photo,
-            'desc' => $request->desc
+            'opts_desc' => $request->desc
         ]);
-        return redirect()->back()->with('update','Successfully updated');
+        $ballot_question_id=$request->quest_id;
+        $ballot_id=BallotQuestion::find($ballot_question_id)->first('ballot_id')->toArray();
+        $ballot_id=$ballot_id['ballot_id'];
+
+        $displayBO=QuesOpt::with('BallotQuestion')->where('ballot_question_id','=',$request->quest_id)->get();
+        return redirect()->route('BO',$ballot_question_id)->with('update','Update Succccccessfully');
+ }
+
+    function delete(Request $request)
+    {
+        QuesOpt::destroy($request->id);
+        return redirect()->back();
     }
-    function delete($id){
-        BallotOption::destroy($id);
-        return redirect()->back()->with('delete','Successfully Deleted');
-    }
+
 }
