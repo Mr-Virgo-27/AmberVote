@@ -18,9 +18,16 @@
 
     <!-- new link added -->
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    {{-- Font awesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+    @include('sweetalert::alert')
+
     @if (\Request::is('dashboard/*') || Request::is('dashboard'))
         @include('layouts.dashboard')
     @else
@@ -44,7 +51,7 @@
 
                             <a href="{{ route('logout') }}" class="no-underline hover:underline"
                                 onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
