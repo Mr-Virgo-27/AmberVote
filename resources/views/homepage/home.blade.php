@@ -7,6 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="/icon2.png">
     <title>
       Amber Vote
     </title>
@@ -19,13 +20,13 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
       .gradient {
-        background: linear-gradient(90deg, #1465df 80%,#e7650ee5 100%);
+        background: #1465df;
       }
     </style>
   </head>
   <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
-    <nav id="header" class="fixed top-0 z-30 w-full text-white">
+    <nav id="header" class="fixed top-0 z-30 w-full text-white ">
       <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
         <div class="flex items-center pl-4">
           <a class="text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-4xl" href="/">
@@ -37,7 +38,8 @@
                 d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
               />
             </svg> --}}
-            AmberVote
+            <img id="logo" src="/ambervotelogo.png" width="200px;">
+            {{-- AmberVote --}}
           </a>
         </div>
         <div class="block pr-4 lg:hidden">
@@ -66,7 +68,8 @@
             class="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow outline-none opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
           >
             Login
-          </button></a>
+          </button>
+        </a>
         {{-- </div> --}}
         @if(Route::has('register'))
           <a href="{{ route('register') }}"><button
@@ -118,7 +121,7 @@
         <div class="flex flex-col items-start justify-center w-full text-center md:w-2/5 md:text-left">
           <p class="w-full uppercase tracking-loose">Amber Vote</p>
           <h1 class="my-4 text-5xl font-bold leading-tight">
-            Safe, Secure and legitimate Voting System
+            Safe, Secure and Legitimate Voting System
           </h1>
           <p class="mb-8 text-2xl leading-normal">
             Make us your voting system today!
@@ -472,7 +475,7 @@
     <section class="py-8 bg-white border-b">
       <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          
+          Title
         </h1>
         <div class="w-full mb-4">
           <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
@@ -749,6 +752,7 @@
       var navcontent = document.getElementById("nav-content");
       var navaction = document.getElementById("navAction");
       var brandname = document.getElementById("brandname");
+      var logo = document.getElementById("logo");
       var toToggle = document.querySelectorAll(".toggleColour");
 
       document.addEventListener("scroll", function () {
@@ -761,6 +765,7 @@
           navaction.classList.add("gradient");
           navaction.classList.remove("text-gray-800");
           navaction.classList.add("text-white");
+          logo.src='/ambervotelogoblack.png';
           //Use to switch toggleColour colours
           for (var i = 0; i < toToggle.length; i++) {
             toToggle[i].classList.add("text-gray-800");
@@ -775,6 +780,7 @@
           navaction.classList.add("bg-white");
           navaction.classList.remove("text-white");
           navaction.classList.add("text-gray-800");
+          logo.src='/ambervotelogo.png';
           //Use to switch toggleColour colours
           for (var i = 0; i < toToggle.length; i++) {
             toToggle[i].classList.add("text-white");
