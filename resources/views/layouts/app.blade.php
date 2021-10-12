@@ -28,16 +28,21 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+<body class="h-screen font-sans antialiased leading-none bg-gray-100">
+    @include('sweetalert::alert')
+
+    @if (\Request::is('dashboard/*') || Request::is('dashboard'))
+        @include('layouts.dashboard')
+    @else
     <div id="app">
-        <header class="bg-blue-900 py-6">
-            <div class="container mx-auto flex justify-between items-center px-6">
+        <header class="py-6 bg-blue-900">
+            <div class="container flex items-center justify-between px-6 mx-auto">
                 <div>
                     <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
-                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+                <nav class="space-x-4 text-sm text-gray-300 sm:text-base">
                     @guest
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
@@ -60,5 +65,6 @@
 
         @yield('content')
     </div>
+    @endif
 </body>
 </html>
