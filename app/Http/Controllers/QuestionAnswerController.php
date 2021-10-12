@@ -13,14 +13,20 @@ class QuestionAnswerController extends Controller
 {
     //
 
+    public function index()
+    {
+        return view('questionAnswer.index');
+    }
+
     public function create($id)
     {
-        $elec=Election::with('user')->where('id', $id)->get()->toArray();
-        $election= Election::where('id', $id)->value('election_nm');
-        $ballot=Ballot::where('election_id', $id)->value('id');
-        $ballot_question=BallotQuestion::with('quesOpt')->where('ballot_id', $ballot)->get()->toArray();
-        // dd($ballot_question);
-        return view('questionAnswer.create', compact('ballot_question', 'elec', 'election', 'ballot'));
+        $elec = Election::with('user')->where('id', $id)->get()->toArray();
+        $election = Election::where('id', $id)->value('election_nm');
+        $ballot = Ballot::where('election_id', $id)->value('id');
+        $ballot_question = BallotQuestion::with('quesOpt')->where('ballot_id', $ballot)->get()->toArray();
+        $max_res = BallotQuestion::with('quesOpt')->where('ballot_id', $ballot)->value('max_res');
+        // dd($max_res);
+        return view('questionAnswer.create', compact('ballot_question', 'elec', 'election', 'ballot', 'max_res'));
     }
 
     public function store(Request $request)
