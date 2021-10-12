@@ -10,8 +10,9 @@ class ElectionController extends Controller
 {
     public function electionIndex()
     {
-        $elections = Election::where('user_id', auth()->user()->id)->get();
-        return view('election.index', compact('elections'));
+        $elections = Election::where('user_id', auth()->user()->id)->orderBy('election_nm','asc')->get();
+        $created = Election::where('user_id', auth()->user()->id)->get('created_at');
+        return view('election.index', compact('elections','created'));
     }
 
     public function addElection()
@@ -22,11 +23,23 @@ class ElectionController extends Controller
     public function electionStore(Request $req)
     {
         $req->validate([
-            'election_nm' => 'required',
+            'election_nm'=>'required | unique:elections,election_nm',
             'start' => 'required|date',
             'end' => 'required|date',
             'desc' => 'required'
+        ],[
+            'election_nm.required'=>'Election Name is required',
+            'election_nm.unique'=>'Election already exist',
+            'start.required' => 'The start date of election is required',
+            'end.required' => 'The end date of election is required',
+            'desc.required' => 'The description of the election is required',
         ]);
+       
+//             'election_nm' => 'required',
+//             'start' => 'required|date',
+//             'end' => 'required|date',
+//             'desc' => 'required'
+//         ]);
 
         Election::create([
             'user_id' => Auth::id(),
@@ -36,7 +49,7 @@ class ElectionController extends Controller
             'desc' => $req->desc
         ]);
 
-        return redirect()->route('election.Index');
+        return redirect()->route('Election.Index');
     }
 
     public function show($id)

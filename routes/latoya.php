@@ -9,7 +9,7 @@ Route::get('/dashboard/ballot/{id}', [BallotController::class, 'index'])->name('
 
 Route::get('/dashboard/ballotType{id}', [BallotController::class, 'create'])->name('ballotsType');
 
-Route::post('/dashboard/ballotType', [BallotController::class, 'store'])->name('storeBallot');
+Route::get('/dashboard/ballotType/{id}', [BallotController::class, 'store'])->name('storeBallot');
 
 Route::get('/dashboard/ballotmsgs', [BallotMsgController::class, 'index'])->name('ballot.msgs');
 
