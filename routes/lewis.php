@@ -7,6 +7,7 @@ Route::get('dashboard/Edit/BallotQuestion/{id}', [\App\Http\Controllers\BallotQu
 Route::post('dashboard/Update/BallotQuestion', [\App\Http\Controllers\BallotQuestionController::class, 'UpdateBQ'])->name('UpdateBQ');
 Route::get('dashboard/Delete/BallotQuestion/{id}', [\App\Http\Controllers\BallotQuestionController::class, 'DeleteBQ'])->name('DeleteBQ');
 
+
 Route::get('dashboard/View/BallotOption', [\App\Http\Controllers\BallotOptionController::class, 'ViewBO'])->name('ViewBO');
 Route::get('dashboard/Edit/BallotOption/{id}', [\App\Http\Controllers\BallotOptionController::class, 'ViewUpdateBO'])->name('ViewUpdateBO');
 Route::get('dashboard/BallotOption/{id}', [\App\Http\Controllers\BallotOptionController::class, 'BO'])->name('BO');
@@ -14,4 +15,3 @@ Route::post('dashboard/Add/BallotOption', [\App\Http\Controllers\BallotOptionCon
 Route::post('dashboard/Finish/Add/BallotOption', [\App\Http\Controllers\BallotOptionController::class, 'FinishAddBO'])->name('FinishAddingOptions');
 Route::post('dashboard/Delete/BallotOption', [\App\Http\Controllers\BallotOptionController::class, 'delete'])->name('DeleteBO');
 Route::post('dashboard/Update/BallotOption', [\App\Http\Controllers\BallotOptionController::class, 'UpdateBO'])->name('UpdateBO');
-

@@ -59,12 +59,14 @@ class BallotController extends Controller
             'election_id' => $id,
             'desc'=>'none'
         ]);
+
         $ballot_id=Ballot::where('election_id','=',$id)->get();
        foreach($ballot_id as $id){
            $ballot_id=$id->id;
        }
         $displayBQ=[];
         return redirect()->route('BQ',$ballot_id);
+
 
     }
 
