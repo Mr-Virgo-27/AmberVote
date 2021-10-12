@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>
-      Tailwind Starter Template - Landing Page Template: Tailwind Toolbox
+      Amber Vote
     </title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -19,7 +19,7 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
       .gradient {
-        background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        background: linear-gradient(90deg, #1465df 80%,#e7650ee5 100%);
       }
     </style>
   </head>
@@ -116,16 +116,17 @@
       <div class="container flex flex-col flex-wrap items-center px-3 mx-auto md:flex-row">
         <!--Left Col-->
         <div class="flex flex-col items-start justify-center w-full text-center md:w-2/5 md:text-left">
-          <p class="w-full uppercase tracking-loose">What business are you?</p>
+          <p class="w-full uppercase tracking-loose">Amber Vote</p>
           <h1 class="my-4 text-5xl font-bold leading-tight">
-            Main Hero Message to sell yourself!
+            Safe, Secure and legitimate Voting System
           </h1>
           <p class="mb-8 text-2xl leading-normal">
-            Sub-hero message, not too long and not too short. Make it just right!
+            Make us your voting system today!
           </p>
-          <button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
-            Subscribe
+          <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
+            Join Us
           </button>
+        </a>
         </div>
         <!--Right Col-->
         <div class="w-full py-6 text-center md:w-3/5">
@@ -155,7 +156,7 @@
     <section class="py-8 bg-white border-b">
       <div class="container max-w-5xl m-8 mx-auto">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Title
+          Amber Vote
         </h1>
         <div class="w-full mb-4">
           <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
@@ -163,16 +164,16 @@
         <div class="flex flex-wrap">
           <div class="w-5/6 p-6 sm:w-1/2">
             <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
-              Lorem ipsum dolor sit amet
+             Is Amber Vote Secure?
             </h3>
             <p class="mb-8 text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+              Amber Vote is a secured and trustworthy application vetted by over 1000 users.
               <br />
               <br />
 
-              Images from:
+              {{-- Images from:
 
-              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> --}}
             </p>
           </div>
           <div class="w-full p-6 sm:w-1/2">
@@ -456,15 +457,12 @@
           <div class="w-full p-6 mt-6 sm:w-1/2">
             <div class="align-middle">
               <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
-                Lorem ipsum dolor sit amet
+                Amber Vote Worldwide
               </h3>
               <p class="mb-8 text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                Amber Vote application is capable of connecting to over 30 countries in the world.
                 <br />
                 <br />
-                Images from:
-
-                <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
               </p>
             </div>
           </div>
@@ -474,7 +472,7 @@
     <section class="py-8 bg-white border-b">
       <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Title
+          
         </h1>
         <div class="w-full mb-4">
           <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
@@ -740,7 +738,7 @@
     </footer>
 
     <div>
-      <p class="p-3 text-center">Distributed By: <a href="https://themewagon.com/">Themewagon</a></p>
+      <p class="p-3 text-center">&copy; <a href="https://themewagon.com/">Amber Group</a></p>
     </div>
     <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
