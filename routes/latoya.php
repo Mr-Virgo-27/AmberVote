@@ -15,7 +15,12 @@ Route::get('/dashboard/ballotmsgs', [BallotMsgController::class, 'index'])->name
 
 Route::post('/dashboard/ballotmsgs', [BallotMsgController::class, 'store'])->name('ballotmsgs.store');
 
-Route::get('election/{id}', [QuestionAnswerController::class, 'create'])->name('election.answer');
+
+// Route::get('election/{id}', [QuestionAnswerController::class, 'create'])->name('election.index');
+
+// Route::post('/election/{id}', [QuestionAnswerController::class, 'login'])->name('election.store');
+
+Route::get('election/{id}/ballot', [QuestionAnswerController::class, 'create'])->name('election.answer');
 
 Route::post('election/answers', [QuestionAnswerController::class, 'store'])->name('election.storeanswer');
 

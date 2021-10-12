@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Election;
 use App\Models\User;
 use App\Models\Ballot;
+use App\Models\QuestionAnswer;
 use App\Models\BallotQuestion;
 use Illuminate\Http\Request;
 
@@ -19,11 +20,22 @@ class QuestionAnswerController extends Controller
         $ballot=Ballot::where('election_id', $id)->value('id');
         $ballot_question=BallotQuestion::with('quesOpt')->where('ballot_id', $ballot)->get()->toArray();
         // dd($ballot_question);
-        return view('questionAnswer.index', compact('ballot_question', 'elec', 'election'));
+        return view('questionAnswer.create', compact('ballot_question', 'elec', 'election', 'ballot'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        // dd($request->all());
+        $ballot_count= BallotQuestion::where('ballot_id', $request->ballot_id)->count();
+    //  dd($ballot_count);
+      for ($i=1;$i<=$ballot_count; $i++) {
+        QuestionAnswer::create([
+            'voter_id'=>auth()->user()->id,
+            'ballot_question_id'=>$request->ballot_question_id.$i,
+            'answer'=>$request->answer.$i,
+        ]);
+    }
+    return redirect()->back();
 
     }
 }
