@@ -2,10 +2,9 @@
 
 @section('content')
 <!-- component -->
-<div class="min-h-screen bg-gray-100 ">
-    <div class="flex justify-center items-center">
-
-    <div class=" mt-5 bg-white p-8 rounded-lg shadow-lg  hover:shadow-2xl ">
+<div class="min-h-screen bg-gray-100 flex items-center justify-center">
+  <div class="containter mx-auto px-20">
+    <div class="bg-white p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">
       <h1 class="text-2xl text-gray-800 font-semibold mb-3">Create your Ballot</h1>
       <p class="text-gray-600 leading-6 tracking-normal">Get started by adding your questions</p>
       <form>
@@ -18,6 +17,6 @@
       </div>
     </div>
   </div>
-
 </div>
+
 @endsection

@@ -11,8 +11,7 @@ class QuesOpt extends Model
 
     protected $fillable = [
         'ballot_question_id',
-        'option',
-        'photo',
+        'options',
         'opts_desc'
     ];
 

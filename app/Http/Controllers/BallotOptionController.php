@@ -9,77 +9,66 @@ use App\Models\QuesOpt;
 class BallotOptionController extends Controller
 {
 
-    public function BO($id){
-        $ballot_id = BallotQuestion::find($id)->first('ballot_id')->toArray();
-        $ballot_id=$ballot_id['ballot_id'];
-        $ballot_question_id=$id;
-        $displayBO=QuesOpt::where('ballot_question_id',$ballot_question_id)->get();
-        return view('ballotOption.AddBallotOption',compact('ballot_question_id','ballot_id','displayBO'));
+    public function BO(){
+        $data = BallotQuestion::all();
+        return view('ballotOption.AddBallotOption',compact('data'));
     }
 
     public function AddBO(Request $request){
         $this->validate($request,[
-            'option'=>'required|unique:ques_opts,option',
-            'photo'=>'unique:ques_opts,option',
-            'desc'=>'required|unique:ques_opts,option'
+
+            'option',
+            'max_res',
+            'min_res',
+            'photo',
+            'desc'
         ]);
 
         $photo = $request->file('photo')->getClientOriginalName();
         $request->file('photo')->move('images',$photo);
-
         QuesOpt::create([
-            'ballot_question_id' => $request->quest_id,
+            'question_id' => $request->quest_id,
             'option' => $request->option,
+            'max_res' => $request->max_res,
+            'min_res' => $request->min_res,
             'photo' => $photo,
-            'opts_desc' => $request->desc
+            'desc' => $request->desc
         ]);
-        $ballot_question_id=$request->quest_id;
-        $ballot_id=$request->ballot_id;
-        $displayBO=QuesOpt::with('BallotQuestion')->where('ballot_question_id','=',$request->quest_id)->get();
         return redirect()->back();
-  }
-
-    public function FinishAddBO(Request $request){
-        $ballot_id=$request->ballot_id;
-        $displayBQ=BallotQuestion::where('ballot_id','=',$request->ballot_id)->get();
-        return view('ballotQuestion.AddBallotQuestion',compact('ballot_id','displayBQ'));
     }
 
     public function ViewBO(){
         $data = QuesOpt::with('BallotQuestions')->get();
+//        dd($data);
         return view('ballotOption.index',compact('data'));
     }
     public function ViewUpdateBO($id){
         $data = QuesOpt::find($id);
+//        dd($data);
         return view('ballotOption.UpdateBallotOption',compact('data'));
     }
 
     public function UpdateBO(Request $request){
+//        dd($request->photo);
         $this->validate($request,[
-            'photo' =>'required',
-            'option' => 'required',
-            'desc' => 'required'
+            'photo'=>'required'
         ]);
-        $photo = $request->file('photo')->getClientOriginalName();
+        $photo = time().$request->file('photo')->getClientOriginalName();
         $request->file('photo')->move('images',$photo);
-
-        QuesOpt::find($request->id)->update([
-           'option' => $request->option,
+//         dd($photo);
+//        dd($request->quest_id);
+        QuesOpt::find($request->quest_id)->update([
+//            'question_id' => $request->option,
+            'option' => $request->option,
+            'max_res' => $request->max_res,
+            'min_res' => $request->min_res,
             'photo' => $photo,
-            'opts_desc' => $request->desc
+            'desc' => $request->desc
         ]);
-        $ballot_question_id=$request->quest_id;
-        $ballot_id=BallotQuestion::find($ballot_question_id)->first('ballot_id')->toArray();
-        $ballot_id=$ballot_id['ballot_id'];
-
-        $displayBO=QuesOpt::with('BallotQuestion')->where('ballot_question_id','=',$request->quest_id)->get();
-        return redirect()->route('BO',$ballot_question_id)->with('update','Update Succccccessfully');
- }
-
-    function delete(Request $request)
-    {
-        QuesOpt::destroy($request->id);
-        return redirect()->back();
+        return redirect()->back()->with('update','Successfully updated');
     }
-
+    function delete($id){
+        QuesOpt::destroy($id);
+        return redirect()->back()->with('delete','Successfully Deleted');
+    }
 }
