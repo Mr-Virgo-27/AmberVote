@@ -14,7 +14,9 @@ class BallotMsgController extends Controller
      */
     public function index()
     {
+
         //
+        return view('ballotMsg.index');
     }
 
     /**
@@ -36,6 +38,11 @@ class BallotMsgController extends Controller
     public function store(Request $request)
     {
         //
+        BallotMsg::create([
+        'election_id'=>$request->election_id,
+        'msg_type'=>$request->msg_type,
+        ]);
+        return redirect()->back();
     }
 
     /**

@@ -13,15 +13,17 @@ class TwilioController extends Controller
      * 
      * @return response()
      */
-    public function sendSMS(Request $request)
+    public function sendSMS($phone, $message)
     {
-        $request->validate([
-            'phone' => 'required',
-            'message' => 'required|max:255'
-        ]);
+        // $request->validate([
+        //     'phone' => 'required',
+        //     'message' => 'required|max:255'
+        // ]);
 
-        $receiverNumber = $request->phone;
-        $message = $request->message;
+        // $receiverNumber = $request->phone;
+        // $message = $request->message;
+        $receiverNumber = $phone;
+        $message = $message;
 
         try {
 
@@ -35,7 +37,7 @@ class TwilioController extends Controller
                 'body' => $message
             ]);
 
-            dd('SMS Sent Successfully.');
+            return redirect('ViewVoterIndex');
         } catch (Exception $e) {
             dd("Error: " . $e->getMessage());
         }
