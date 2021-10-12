@@ -49,6 +49,8 @@ class BallotController extends Controller
             'desc'=>'none'
         ]);
         return redirect()->route('BQ');
+
+
     }
 
     /**
