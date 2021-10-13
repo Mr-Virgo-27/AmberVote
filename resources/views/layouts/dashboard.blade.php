@@ -420,9 +420,9 @@
             <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">
                 <div>Amber Academy &copy; 2020</div>
                 <div class="text-sm">
-                    Made by
-                    <span class="text-blue-400 underline" href="https://github.com/Kamona-WD" target="_blank"
-                        rel="noopener noreferrer">Group 3</span>
+                    &copy;
+                    <a class="text-blue-400 underline" href="/""
+                        rel="noopener noreferrer">Innovations</a>
                 </div>
                 <div>
                     <!-- Github svg -->
