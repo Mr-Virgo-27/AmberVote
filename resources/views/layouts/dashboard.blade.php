@@ -421,8 +421,8 @@
                 <div></div>
                 <div class="text-sm">
                     &copy;
-                    <a class="text-blue-400 underline" href="https://github.com/Kamona-WD" target="_blank"
-                        rel="noopener noreferrer">Amber Group 2021</a>
+                    <a class="text-blue-400 underline" href="/""
+                        rel="noopener noreferrer">Innovations</a>
                 </div>
                 <div>
                     <!-- Github svg -->
