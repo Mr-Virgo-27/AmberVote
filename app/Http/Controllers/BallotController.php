@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ballot;
 use App\Models\Election;
+use App\Models\BallotQuestion;
 use Illuminate\Http\Request;
 
 class BallotController extends Controller
@@ -40,15 +41,33 @@ class BallotController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        $check=Ballot::where('election_id',$id)->count();
+//        dd($check);
+        if($check==1){
+            return redirect()->back()->with('Error','Election ballot already exist:One Ballot per Election');
+        }
+//        $this->validate($request,[
+//            'election_id' => 'unique:ballots,election_id'
+//        ],[
+//            'election_id.unqiue'=>'Ballot already exits'
+//        ]);
+
         Ballot::create([
-            'ballot_type' => $request->ballot_type,
-            'election_id' => $request->election_id,
+            'ballot_type' => 'Multiple Choice',
+            'election_id' => $id,
             'desc'=>'none'
         ]);
-        return redirect()->route('BQ');
+
+        $ballot_id=Ballot::where('election_id','=',$id)->get();
+       foreach($ballot_id as $id){
+           $ballot_id=$id->id;
+       }
+        $displayBQ=[];
+        return redirect()->route('BQ',$ballot_id);
+
+
     }
 
     /**
