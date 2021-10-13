@@ -7,8 +7,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="/icon2.png">
     <title>
-      Tailwind Starter Template - Landing Page Template: Tailwind Toolbox
+      Amber Vote
     </title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -19,13 +20,13 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
       .gradient {
-        background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        background: #1465df;
       }
     </style>
   </head>
   <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
-    <nav id="header" class="fixed top-0 z-30 w-full text-white">
+    <nav id="header" class="fixed top-0 z-30 w-full text-white ">
       <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
         <div class="flex items-center pl-4">
           <a class="text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-4xl" href="/">
@@ -37,7 +38,8 @@
                 d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
               />
             </svg> --}}
-            AmberVote
+            <img id="logo" src="/ambervotelogo.png" width="200px;">
+            {{-- AmberVote --}}
           </a>
         </div>
         <div class="block pr-4 lg:hidden">
@@ -66,7 +68,8 @@
             class="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow outline-none opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
           >
             Login
-          </button></a>
+          </button>
+        </a>
         {{-- </div> --}}
         @if(Route::has('register'))
           <a href="{{ route('register') }}"><button
@@ -116,16 +119,17 @@
       <div class="container flex flex-col flex-wrap items-center px-3 mx-auto md:flex-row">
         <!--Left Col-->
         <div class="flex flex-col items-start justify-center w-full text-center md:w-2/5 md:text-left">
-          <p class="w-full uppercase tracking-loose">What business are you?</p>
+          <p class="w-full uppercase tracking-loose">Amber Vote</p>
           <h1 class="my-4 text-5xl font-bold leading-tight">
-            Main Hero Message to sell yourself!
+            Safe, Secure and Legitimate Voting System
           </h1>
           <p class="mb-8 text-2xl leading-normal">
-            Sub-hero message, not too long and not too short. Make it just right!
+            Make us your voting system today!
           </p>
-          <button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
-            Subscribe
+          <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg hover:bg- lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
+            Join Us
           </button>
+        </a>
         </div>
         <!--Right Col-->
         <div class="w-full py-6 text-center md:w-3/5">
@@ -155,7 +159,7 @@
     <section class="py-8 bg-white border-b">
       <div class="container max-w-5xl m-8 mx-auto">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Title
+          Amber Vote
         </h1>
         <div class="w-full mb-4">
           <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
@@ -163,16 +167,16 @@
         <div class="flex flex-wrap">
           <div class="w-5/6 p-6 sm:w-1/2">
             <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
-              Lorem ipsum dolor sit amet
+             Is Amber Vote Secure?
             </h3>
             <p class="mb-8 text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+              Amber Vote is a secured and trustworthy application vetted by over 1000 users.
               <br />
               <br />
 
-              Images from:
+              {{-- Images from:
 
-              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> --}}
             </p>
           </div>
           <div class="w-full p-6 sm:w-1/2">
@@ -456,15 +460,12 @@
           <div class="w-full p-6 mt-6 sm:w-1/2">
             <div class="align-middle">
               <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
-                Lorem ipsum dolor sit amet
+                Amber Vote Worldwide
               </h3>
               <p class="mb-8 text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                Amber Vote application is capable of connecting to over 30 countries in the world.
                 <br />
                 <br />
-                Images from:
-
-                <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
               </p>
             </div>
           </div>
@@ -474,7 +475,7 @@
     <section class="py-8 bg-white border-b">
       <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Title
+          Why Us?
         </h1>
         <div class="w-full mb-4">
           <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
@@ -483,21 +484,21 @@
           <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
               <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
-                xGETTING STARTED
+                Reliability
               </p>
               <div class="w-full px-6 text-xl font-bold text-gray-800">
-                Lorem ipsum dolor sit amet.
+                We are reliable.
               </div>
               <p class="px-6 mb-5 text-base text-gray-800">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                We have put thousands of hours to ensure that this system has the secuity and functionality to host your election with descretion and fairness.
               </p>
             </a>
           </div>
           <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
             <div class="flex items-center justify-start">
-              <button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
-                Action
-              </button>
+              <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
+                Register
+              </button></a>
             </div>
           </div>
         </div>
@@ -505,21 +506,21 @@
           <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
               <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
-                xGETTING STARTED
+                Humanitarian
               </p>
               <div class="w-full px-6 text-xl font-bold text-gray-800">
-                Lorem ipsum dolor sit amet.
+                We love doing good.
               </div>
               <p class="px-6 mb-5 text-base text-gray-800">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                We are in the business of doing good that will change society for the good. This appplication is built to facilate fairness between the different societies and oragnization with the election of a leader.
               </p>
             </a>
           </div>
           <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
             <div class="flex items-center justify-center">
-              <button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
-                Action
-              </button>
+              <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
+                Join Us
+              </button></a>
             </div>
           </div>
         </div>
@@ -527,27 +528,27 @@
           <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
               <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
-                xGETTING STARTED
+                Features
               </p>
               <div class="w-full px-6 text-xl font-bold text-gray-800">
-                Lorem ipsum dolor sit amet.
+                We love features.
               </div>
               <p class="px-6 mb-5 text-base text-gray-800">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                We build this system with the necessary qualities that will be easy to use. You can add, update and delete data in this application.
               </p>
             </a>
           </div>
           <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
             <div class="flex items-center justify-end">
-              <button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
-                Action
-              </button>
+              <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
+                Let's see...
+              </button></a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="py-8 bg-gray-100">
+    {{--  <section class="py-8 bg-gray-100">
       <div class="container px-2 pt-4 pb-12 mx-auto text-gray-800">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
           Pricing
@@ -627,7 +628,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>  --}}
     <!-- Change the colour #f8fafc to match the previous section colour -->
     <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -658,14 +659,14 @@
         <div class="w-1/6 h-1 py-0 mx-auto my-0 bg-white rounded-t opacity-25"></div>
       </div>
       <h3 class="my-4 text-3xl leading-tight">
-        Main Hero Message to sell yourself!
+        Create your election with us today!
       </h3>
-      <button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
+      <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
         Action!
-      </button>
+      </button></a>
     </section>
     <!--Footer-->
-    <footer class="bg-white">
+    {{--  <footer class="bg-white">
       <div class="container px-8 mx-auto">
         <div class="flex flex-col w-full py-6 md:flex-row">
           <div class="flex-1 mb-6 text-black">
@@ -737,10 +738,10 @@
         </div>
       </div>
       <a href="https://www.freepik.com/free-photos-vectors/background" class="text-center text-gray-500">Background vector created by freepik - www.freepik.com</a>
-    </footer>
+    </footer>  --}}
 
     <div>
-      <p class="p-3 text-center">Distributed By: <a href="https://themewagon.com/">Themewagon</a></p>
+      <p class="p-3 text-center">&copy; <a href="https://themewagon.com/">Amber Innovations</a></p>
     </div>
     <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -751,6 +752,7 @@
       var navcontent = document.getElementById("nav-content");
       var navaction = document.getElementById("navAction");
       var brandname = document.getElementById("brandname");
+      var logo = document.getElementById("logo");
       var toToggle = document.querySelectorAll(".toggleColour");
 
       document.addEventListener("scroll", function () {
@@ -763,6 +765,7 @@
           navaction.classList.add("gradient");
           navaction.classList.remove("text-gray-800");
           navaction.classList.add("text-white");
+          logo.src='/ambervotelogoblack.png';
           //Use to switch toggleColour colours
           for (var i = 0; i < toToggle.length; i++) {
             toToggle[i].classList.add("text-gray-800");
@@ -777,6 +780,7 @@
           navaction.classList.add("bg-white");
           navaction.classList.remove("text-white");
           navaction.classList.add("text-gray-800");
+          logo.src='/ambervotelogo.png';
           //Use to switch toggleColour colours
           for (var i = 0; i < toToggle.length; i++) {
             toToggle[i].classList.add("text-white");

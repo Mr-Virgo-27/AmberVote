@@ -21,6 +21,7 @@ class CreateQuesOptsTable extends Migration
             $table->longText('opts_desc');
             $table->bigInteger('total_vote')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
