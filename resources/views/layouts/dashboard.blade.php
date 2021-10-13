@@ -106,25 +106,23 @@
             </nav>
             <!-- Sidebar footer -->
             <div class="flex-shrink-0 p-2 border-t max-h-14">
-                <a href="{{ route('logout') }}"
-                           class="no-underline hover:underline hover:text-red-300"
-                           onclick="event.preventDefault();
+                <a href="{{ route('logout') }}" class="no-underline hover:underline hover:text-red-300" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                <button
-                    class="flex items-center justify-center w-full px-4 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md -py-2 hover:text-white hover:bg-red-400 focus:outline-none focus:ring">
-                    <span>
-                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                        </svg>
-                    </span>
-                    <span :class="{'lg:hidden': !isSidebarOpen}"> {{ __('Logout') }} </span>
-                </button>
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                {{ csrf_field() }}
-            </form>
+                    <button
+                        class="flex items-center justify-center w-full px-4 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md -py-2 hover:text-white hover:bg-red-400 focus:outline-none focus:ring">
+                        <span>
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                        </span>
+                        <span :class="{'lg:hidden': !isSidebarOpen}"> {{ __('Logout') }} </span>
+                    </button>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    {{ csrf_field() }}
+                </form>
             </div>
         </aside>
 
@@ -373,12 +371,12 @@
                                 </ul>
                                 <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
                                     <a href="{{ route('logout') }}"
-                           class="no-underline hover:bg-red-400 hover:text-white"
-                           onclick="event.preventDefault();
+                                        class="no-underline hover:bg-red-400 hover:text-white" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                            {{ csrf_field() }}
-                        </form>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="hidden">
+                                        {{ csrf_field() }}
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -422,7 +420,7 @@
                 <div class="text-sm">
                     &copy;
                     <a class="text-blue-400 underline" href="/""
-                        rel="noopener noreferrer">Innovations</a>
+                        rel=" noopener noreferrer">Innovations</a>
                 </div>
                 <div>
                     <!-- Github svg -->
