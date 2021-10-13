@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BallotQuestion;
+use App\Models\Election;
+use Auth;
 
 class BallotQuestionController extends Controller
 {
@@ -17,10 +19,17 @@ class BallotQuestionController extends Controller
             'question' => 'Required'
         ]);
 
+//       $d= Election::where('user_id','=',Auth::User()->id)->get('id');
+//dd($d);
         BallotQuestion::create([
+            'ballot_id',
             'question' => $request->question,
+            'max_res',
+            'min_res',
+            'desc'
         ]);
-        return view('ballotQuestion.AddBallotQuestion');
+//        return view('ballotQuestion.AddBallotQuestion');
+        return view('ballotOption.AddBallotOption');
     }
     public function ViewBQ(){
         $data = BallotQuestion::all();

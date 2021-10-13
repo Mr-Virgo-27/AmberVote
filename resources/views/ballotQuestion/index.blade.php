@@ -20,8 +20,8 @@
         <td class="p-2 md:border md:border-grey-500 text-left  block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>{{$info->Question}}</td>
         <td class="p-2 md:border md:border-grey-500 text-center  block md:table-cell">
             <span class="inline-block w-1/3 md:hidden font-bold"></span>
-           <a href="{{url('/Edit/BallotQuestion/'.$info->id)}}"><button type="submit"  class="bg-green-600 hover:bg-green-400 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button></a>
-           <a href="{{url('/Delete/BallotQuestion/'.$info->id)}}"><button type="submit" class="bg-red-600 hover:bg-red-400 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button></a>
+           <a href="{{url('dashboard/edit/ballotquestion/'.$info->id)}}"><button type="submit"  class="bg-green-600 hover:bg-green-400 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button></a>
+           <a href="{{url('dashboard/delete/ballotquestion/'.$info->id)}}"><button type="submit" class="bg-red-600 hover:bg-red-400 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button></a>
         </td>
 
     </tr>
