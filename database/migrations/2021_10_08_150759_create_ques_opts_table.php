@@ -20,6 +20,7 @@ class CreateQuesOptsTable extends Migration
             $table->string('photo')->nullable();
             $table->longText('opts_desc');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
