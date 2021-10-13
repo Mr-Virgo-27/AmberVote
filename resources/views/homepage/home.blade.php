@@ -126,7 +126,7 @@
           <p class="mb-8 text-2xl leading-normal">
             Make us your voting system today!
           </p>
-          <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
+          <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg hover:bg- lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
             Join Us
           </button>
         </a>
@@ -475,7 +475,7 @@
     <section class="py-8 bg-white border-b">
       <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Title
+          Why Us?
         </h1>
         <div class="w-full mb-4">
           <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
@@ -484,21 +484,21 @@
           <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
               <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
-                xGETTING STARTED
+                Reliability
               </p>
               <div class="w-full px-6 text-xl font-bold text-gray-800">
-                Lorem ipsum dolor sit amet.
+                We are reliable.
               </div>
               <p class="px-6 mb-5 text-base text-gray-800">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                We have put thousands of hours to ensure that this system has the secuity and functionality to host your election with descretion and fairness.
               </p>
             </a>
           </div>
           <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
             <div class="flex items-center justify-start">
-              <button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
-                Action
-              </button>
+              <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
+                Register
+              </button></a>
             </div>
           </div>
         </div>
@@ -506,21 +506,21 @@
           <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
               <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
-                xGETTING STARTED
+                Humanitarian
               </p>
               <div class="w-full px-6 text-xl font-bold text-gray-800">
-                Lorem ipsum dolor sit amet.
+                We love doing good.
               </div>
               <p class="px-6 mb-5 text-base text-gray-800">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                We are in the business of doing good that will change society for the good. This appplication is built to facilate fairness between the different societies and oragnization with the election of a leader.
               </p>
             </a>
           </div>
           <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
             <div class="flex items-center justify-center">
-              <button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
-                Action
-              </button>
+              <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
+                Join Us
+              </button></a>
             </div>
           </div>
         </div>
@@ -528,27 +528,27 @@
           <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
               <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
-                xGETTING STARTED
+                Features
               </p>
               <div class="w-full px-6 text-xl font-bold text-gray-800">
-                Lorem ipsum dolor sit amet.
+                We love features.
               </div>
               <p class="px-6 mb-5 text-base text-gray-800">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                We build this system with the necessary qualities that will be easy to use. You can add, update and delete data in this application.
               </p>
             </a>
           </div>
           <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
             <div class="flex items-center justify-end">
-              <button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
-                Action
-              </button>
+              <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
+                Let's see...
+              </button></a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="py-8 bg-gray-100">
+    {{--  <section class="py-8 bg-gray-100">
       <div class="container px-2 pt-4 pb-12 mx-auto text-gray-800">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
           Pricing
@@ -628,7 +628,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>  --}}
     <!-- Change the colour #f8fafc to match the previous section colour -->
     <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -659,14 +659,14 @@
         <div class="w-1/6 h-1 py-0 mx-auto my-0 bg-white rounded-t opacity-25"></div>
       </div>
       <h3 class="my-4 text-3xl leading-tight">
-        Main Hero Message to sell yourself!
+        Create your election with us today!
       </h3>
-      <button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
+      <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
         Action!
-      </button>
+      </button></a>
     </section>
     <!--Footer-->
-    <footer class="bg-white">
+    {{--  <footer class="bg-white">
       <div class="container px-8 mx-auto">
         <div class="flex flex-col w-full py-6 md:flex-row">
           <div class="flex-1 mb-6 text-black">
@@ -738,10 +738,10 @@
         </div>
       </div>
       <a href="https://www.freepik.com/free-photos-vectors/background" class="text-center text-gray-500">Background vector created by freepik - www.freepik.com</a>
-    </footer>
+    </footer>  --}}
 
     <div>
-      <p class="p-3 text-center">&copy; <a href="https://themewagon.com/">Amber Group</a></p>
+      <p class="p-3 text-center">&copy; <a href="https://themewagon.com/">Amber Innovations</a></p>
     </div>
     <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
