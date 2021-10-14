@@ -32,17 +32,14 @@ class QuestionAnswerController extends Controller
 
     public function store(Request $request)
     {
-    
-        foreach($request->answers as $key => $value) 
-        {
+
+        foreach ($request->answers as $key => $value) {
             $option = quesOpt::where('ballot_question_id', $key)
-                ->where('id', $value)->get();  
+                ->where('id', $value)->get();
             $option[0]->total_vote++;
             $option[0]->save();
         }
 
-
-    return redirect()->back();
-
+        return redirect('/')->with('success', 'Thank you for voting!');
     }
 }
