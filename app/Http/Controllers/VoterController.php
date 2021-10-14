@@ -7,6 +7,7 @@ use App\Models\QuestionVoter;
 use App\Models\voter;
 use App\Rules\FullName;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class VoterController extends Controller
@@ -203,5 +204,30 @@ class VoterController extends Controller
         }
 
         return redirect()->route('ViewVoterIndex')->with($status, $message);
+    }
+
+    public function voterLogin()
+    {
+        return view('voter.login');
+    }
+
+    public function voterAuth(Request $request)
+    {
+        $request->validate([
+            'unique_id' => 'required',
+            'unique_key' => 'required',
+        ]);
+
+        $credentials = $request->only('unique_id', 'unique_key');
+        $voter = Voter::where('unique_id', $request->unique_id)
+            ->where('unique_key', $request->unique_key)->first();
+        if ($voter) {
+            // session(['election_id' => $voter->election_id]);
+
+            return redirect()->route('election.answer', $voter->election_id)
+                ->with('success', 'Happy Voting');
+        }
+
+        return redirect("voter/login")->with('error', 'Login details are not valid');
     }
 }

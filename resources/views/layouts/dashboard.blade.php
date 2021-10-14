@@ -25,7 +25,12 @@
             <div class="flex items-center justify-between flex-shrink-0 p-2"
                 :class="{'lg:justify-center': !isSidebarOpen}">
                 <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
-                    Amber<span :class="{'lg:hidden': !isSidebarOpen}">Voters</span>
+                    {{-- Amber<span :class="{'lg:hidden': !isSidebarOpen}">Voters</span> --}}
+                    <a class="text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-4xl"
+                        href="/">
+                        <img id="logo" src="/ambervotelogoblack.png" width="200px;">
+                        {{-- AmberVote --}}
+                    </a>
                 </span>
                 <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
                     <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
