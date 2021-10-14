@@ -32,3 +32,6 @@ Route::post('/election/destroy/{id}', [ElectionController::class, 'destroy'])->n
 
 // Settings routes
 Route::get('/settings', [SettingController::class, 'index'])->name('setting.index');
+
+Route::post('/voter/auth', [VoterController::class, 'voterAuth'])->name('voter.auth');
+Route::get('voter/login', [VoterController::class, 'voterLogin'])->name('voter.login');
