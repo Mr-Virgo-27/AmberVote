@@ -6,7 +6,7 @@
         <div class="w-full">
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
-                <header class="px-6 py-5 font-semibold text-center text-gray-700 bg-gray-200 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="px-6 py-5 font-semibold text-center text-gray-700 bg-blue-300 sm:py-6 sm:px-8 sm:rounded-t-md">
                     {{ __('Login') }}
                 </header>
 
@@ -14,13 +14,13 @@
                     @csrf
 
                     <div class="flex flex-wrap">
-                        <label for="email" class="block mb-2 text-sm font-bold text-gray-700 sm:mb-4">
+                        {{-- <label for="email" class="block mb-2 text-sm font-bold text-gray-700 sm:mb-4">
                             {{ __('E-Mail Address') }}:
-                        </label>
+                        </label> --}}
 
                         <input id="email" type="email"
                             class="form-input w-full @error('email') border-red-500 @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="E-Mail">
 
                         @error('email')
                         <p class="mt-4 text-xs italic text-red-500">
@@ -30,13 +30,13 @@
                     </div>
 
                     <div class="flex flex-wrap">
-                        <label for="password" class="block mb-2 text-sm font-bold text-gray-700 sm:mb-4">
+                        {{-- <label for="password" class="block mb-2 text-sm font-bold text-gray-700 sm:mb-4">
                             {{ __('Password') }}:
-                        </label>
+                        </label> --}}
 
                         <input id="password" type="password"
                             class="form-input w-full @error('password') border-red-500 @enderror" name="password"
-                            required>
+                            required placeholder="Password">
 
                         @error('password')
                         <p class="mt-4 text-xs italic text-red-500">

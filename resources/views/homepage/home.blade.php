@@ -20,7 +20,7 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
       .gradient {
-        background: #1465df;
+        background: #2377f5;
       }
     </style>
   </head>
@@ -65,7 +65,7 @@
           @guest
           <a href="{{ route('login') }}"><button
             id="navAction"
-            class="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow outline-none opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+            class="mr-16 px-6 py-2 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow outline-none opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
           >
             Login
           </button>
@@ -74,7 +74,7 @@
         @if(Route::has('register'))
           <a href="{{ route('register') }}"><button
             id="navAction"
-            class="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+            class="px-6 py-2 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
           >
             Register
           </button></a>
@@ -495,7 +495,7 @@
             </a>
           </div>
           <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
-            <div class="flex items-center justify-start">
+            <div class="flex items-center justify-center">
               <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                 Register
               </button></a>
@@ -539,7 +539,7 @@
             </a>
           </div>
           <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
-            <div class="flex items-center justify-end">
+            <div class="flex items-center justify-center">
               <a href="{{route('register')}}"><button class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                 Let's see...
               </button></a>
